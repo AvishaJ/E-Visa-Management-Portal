@@ -1,0 +1,91 @@
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <form (ngSubmit)="submitData()">
+        <div class="container">
+          
+            <h1> Add new Visa</h1>
+            
+            <hr>
+            <p>Select applicant</p>
+
+            <label for="personId">
+                Applicant:
+            </label>
+
+            <select [(ngModel)]="personId" name="personId" >
+                <option *ngFor="let person of persons" [value]="person._id">{{person.name}}</option>
+                <!-- <option value=" Applicant"> Applicant</option>
+                <option value="Bimalesh">Bimalesh</option>
+                <option value="Hitarth">Hitarth</option>
+                <option value="Sajjad">Sajjad</option>
+                <option value="Nidhi">Nidhi</option>
+                <option value="Avisha">Avisha</option> -->
+            </select>
+
+            <div>
+                <label>Visa Issue date</label>
+                <input type="date" [(ngModel)]="visaIssueDate" name="visaIssueDate" required />
+            </div>
+
+             <div>
+              <!--  <label>Passport issue date</label>
+                <input type="date"  [(ngModel)]="passportExpiryDate" name="passportExpiryDate"required />
+                <br>
+                <br> -->
+
+                <label>Number of days</label>
+                <input type="text"  [(ngModel)]="days" name="days"  placeholder="Number of days" size="15" required />
+
+            </div>
+
+            <label>Travel date</label>
+            <input type="date"  [(ngModel)]="travelDate" name="travelDate" required />
+
+            <label>Return date</label>
+            <input type="date"  [(ngModel)]="returnDate" name="returnDate" required />
+
+            <br>
+            <br>
+            <label>Project name*</label>
+            <input type="text"  [(ngModel)]="projectName" name="projectName"  placeholder="Project name" size="15" required />
+
+
+            <label>Working period*</label>
+            <input type="text"  [(ngModel)]="workingPeriod" name="workingPeriod"  placeholder="Working period" size="15" required />
+
+
+            <label>Working place*</label>
+            <input type="text"  [(ngModel)]="workingPlace" name="workingPlace" placeholder="Working place" size="15" required />
+
+            <br>
+            <div>
+                <label>Job Description :</label>
+                <textarea cols="80" rows="5"  [(ngModel)]="jobDescription" name="jobDescription" placeholder="Job Description" value="Job Description" required></textarea>
+            </div>
+
+            <div>
+                <label>Other details:</label>
+                <textarea cols="80" rows="5"  [(ngModel)]="otherDetails" name="otherDetails" placeholder="Other details:" value="Other details:" required></textarea>
+            </div>
+
+            <button type="submit" > 
+              <span *ngIf="!isUpdate">
+                Save
+              </span>
+              <span *ngIf="isUpdate">
+                Update
+              </span> </button> 
+        </div>    
+    </form>
+    
+

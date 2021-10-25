@@ -1,0 +1,35 @@
+<h1>Visa Application Reports</h1>
+<table>
+ 
+  <thead>
+    <tr >
+      <th scope="col">Application Code</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">City</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons" >
+      <td data-label="Application Code">Visa - 3412</td>
+      <td data-label="Name">{{ person.name }}</td>
+      <td data-label="Email">{{ person.email }}</td>
+      <td data-label="Mobile">{{ person.mobile }}</td>
+      <td data-label="City">{{ person.city }}</td>
+      <td data-label="Action"><a routerLink="/apply" [queryParams]="{ id: person._id}">Edit</a></td>
+    </tr>
+    <!--
+      <tr>
+        <td data-label="Application Code">Visa - 3412</td>
+        <td data-label="Name">Dummy</td>
+        <td data-label="Email">dummy@email.com</td>
+        <td data-label="Mobile">12345677889</td>
+        <td data-label="City">Mumbai</td>
+        <td data-label="Action"><a href="#">Edit</a></td>
+      </tr>
+    -->
+   
+  </tbody>
+</table>

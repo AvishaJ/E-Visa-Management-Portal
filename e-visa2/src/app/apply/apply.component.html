@@ -1,0 +1,71 @@
+<form (ngSubmit)="postApply()">
+  <div class="container">
+    <h1> Visa application form</h1>
+    <hr>
+    <h3>Personal details</h3>
+    <label> Name* </label> <br>
+    <input type="text" [(ngModel)]="name" name="name" placeholder="name" size="15" required /><br>
+    <label> Mobile*: </label> <br>
+    <input type="text" [(ngModel)]="mobile" name="mobile" placeholder="Mobile" size="15" required /> <br>
+    <label> Email: </label> <br>
+    <input type="text" [(ngModel)]="email" name="email" placeholder="Email" size="15" required /> <br>
+    <div>
+
+      <h2>Visa applicant address details</h2> <br>
+      <label> Address* </label> <br>
+      <input type="text" [(ngModel)]="address" name="address" placeholder="Address" size="15" required /> <br>
+      <label>City*: </label> <br>
+      <input type="text" [(ngModel)]="city" name="city" placeholder="City" size="15" required /> <br>
+      <label> Pincode*: </label> <br>
+      <input type="text" [(ngModel)]="pincode" name="pincode" placeholder="Pincode" size="15" required /> <br>
+
+
+      <h2>Visa information details</h2>
+      <label>Passport No. :</label><br>
+      <input type="text" [(ngModel)]="passportNo" name="passportNo" placeholder="Passport No" size="15" required /><br>
+
+      <label>Passport issue city No. :</label><br>
+      <input type="text" [(ngModel)]="passportIssueCity" name="passportIssueCity" placeholder="Passport issue city No"
+        size="15" required /><br>
+
+      <!-- <label>State*:</label> <br>
+ <input type="text" [(ngModel)]="state" name="state" placeholder="state" size="15"required /> <br> 
+ <div> 
+<label> 
+Gender* :  
+</label>
+<input type="text" [(ngModel)]="gender1" name="gender1" placeholder="gender" size="15"required />
+ <input type="radio" [(ngModel)]="gender" name="gender" [value]="male"> Male 
+<input type= radio  [(ngModel)]="gender" name="gender" [value]="female"> Female 
+<input type="radio" [(ngModel)]="gender" name="gender" [value]="others"> Other
+</div> -->
+
+      <label>Passport issue date</label>
+      <input type="date" [(ngModel)]="passportIssueDate" name="passportIssueDate" required />
+
+      <label>Passport expiry date</label>
+      <input type="date" [(ngModel)]="passportExpiryDate" name="passportExpiryDate" required />
+      <br>
+      <br>
+      <label>Document Details :</label><br>
+      <textarea cols="80" rows="5" placeholder="Document Details" [(ngModel)]="documentDetails" name="documentDetails"
+        required></textarea>
+      <br>
+      <label>Past Tour Details :</label><br>
+      <textarea cols="80" rows="5" placeholder="Past Tour Details" [(ngModel)]="pastTourDetails" name="pastTourDetails"
+        required></textarea>
+      <br>
+
+      <button type="submit">
+        <span *ngIf="!isUpdate">
+          Save
+        </span>
+        <span *ngIf="isUpdate">
+          Update
+        </span>
+      </button>
+      <button type="reset" style="background-color:#c6c629;">Reset</button>
+
+    </div>
+  </div>
+  </form>

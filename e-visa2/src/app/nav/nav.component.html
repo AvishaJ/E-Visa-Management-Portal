@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Home</a>
+      <a mat-list-item routerLink="/apply">Apply New Visa</a>
+      <a mat-list-item routerLink="/onsite">OnSite Communications</a>
+      <!-- <a mat-list-item routerLink="/reports">Reports</a>
+      <!- - <mat-select #mode value="side">
+        <mat-option value="side">Side</mat-option>
+        <mat-option value="over">Over</mat-option>
+        <mat-option value="push">Push</mat-option>
+      </mat-select> -->
+ 
+      <mat-list-item (click)="showSubmenu = !showSubmenu" >
+        Reports
+          <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}"></mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}">
+        <a mat-list-item routerLink="/reports">Visa Reports</a>
+        <a mat-list-item routerLink="/morereports" > OnSite Reports </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>E-visa Processing</span>
+    </mat-toolbar>
+   <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
